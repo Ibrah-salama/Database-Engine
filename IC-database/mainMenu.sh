@@ -17,7 +17,7 @@
 		if [ "$?" -eq "0" ]
 		then
 		echo "DataBase doesn't exist"
-		else  echo anything
+		else  bash conDB.sh "$dbname"
 		fi	;;
     4)  echo please enter the DataBase name to Drop
            read dbname
