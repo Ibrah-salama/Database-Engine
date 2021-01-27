@@ -4,7 +4,6 @@ item=$1
 pos=$2
 function searchDB  {
   #echo seeeaaaarrrccchhhhh
-
 	for element in `ls ../DATABASES/"$pos"`
                         do              
                            if test "$item" == "$element"

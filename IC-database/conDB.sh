@@ -14,7 +14,7 @@ dbname=$1
     1) echo bash createDB.sh ;;
     2) echo  ls ../DATABASES ;;
     3) bash dropTable.sh "$dbname" ;;   
-    4)  echo Insert;;
+    4) bash insert.sh "$dbname" ;;
     *) echo " not a Choice " ;
  esac
 
