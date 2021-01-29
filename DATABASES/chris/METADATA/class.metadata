@@ -1,0 +1,6 @@
+id:int:pk
+fname:str
+lname:str
+age:int
+
+
