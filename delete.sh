@@ -3,13 +3,14 @@ clear
 echo  "****************************************************************"
 echo  "*                         DELETING OPERATION                   *"
 echo  "****************************************************************"
-echo $dbName
+dbName=$1
 #ASKING USER FOR AIMED TABLE 
 echo Please Enter Table To Delete From: 
 read tabelName
-if [ -f "./DATABASES/$dbName/$tabelName" ]  
+if [ -f "./DATABASES/$dbName/DATA/$tabelName" ]  
 then
-		echo found
+		rm -r "./DATABASES/$dbName/DATA/$tabelName.data" 
+		rm -r "./DATABASES/$dbName/METADATA/$tabelName.metadata" 
 else
-		echo not found
+		echo Table $tabelName Not Found
 fi	

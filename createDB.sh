@@ -17,6 +17,6 @@ else
 	mkdir ./DATABASES/$dbName
 	mkdir ./DATABASES/$dbName/DATA
 	mkdir ./DATABASES/$dbName/METADATA
-	. ./createTable.sh
+	bash createTable.sh "$dbName"
 fi
 
