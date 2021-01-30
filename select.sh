@@ -3,17 +3,17 @@ dbName=$1
 #select function#
 function selectTbl {
   echo "1. select all"
-  echo "2. select by PK" 
+  echo "2. select by element" 
 
 read input
   case $input in
     1)  all=`cat ./DATABASES/$dbName/DATA/$tbName.data`    #`cat ../DATABASES/$dbName/DATA/$tbName-data`
         echo "$all"
         ;;
-    2)  echo "Enter rowId you want to select"
-        read id
-        if grep -q $id "./DATABASES/$dbName/DATA/$tbName.data"; then   #"../DATABASES/$dbName/DATA/$tbName-data"; then
-            grep $id "./DATABASES/$dbName/DATA/$tbName.data"
+    2)  echo "Enter Element you want to select"
+        read element
+        if grep -q $element "./DATABASES/$dbName/DATA/$tbName.data"; then   #"../DATABASES/$dbName/DATA/$tbName-data"; then
+            grep $element "./DATABASES/$dbName/DATA/$tbName.data"
         else 
             echo "not found !"
             ./select.sh
