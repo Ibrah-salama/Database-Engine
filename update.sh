@@ -10,10 +10,10 @@ function updateTbl {
     sed -i "s/$element/$newelement/" ./DATABASES/$dbName/DATA/$tbName.data
     else 
             echo " element not found !"
-            ./select.sh
+            ./select.sh "$dbName"
     fi
  
- echo "Successfully $tbName Table Created."
+ echo "Successfully $tbName Table Updated."
 }
 
 echo "------< UPDATE table in DB $dbName >-------"
@@ -26,5 +26,5 @@ then
         ./select.sh "$dbName"
 else
         updateTbl #function 
-		./databaseOptions.sh "$dbName"
+	./databaseOptions.sh "$dbName"
 fi
