@@ -1,19 +1,50 @@
 #!/bin/bash
 dbName=$1
+flag="false"
 #update function#
 function updateTbl {
-    echo "enter element you want to update"
-    read element
-    if grep -q $element "./DATABASES/$dbName/DATA/$tbName.data";then 
+        echo "enter element you want to update" 
+        read element
+        
+        if grep -q $element "./DATABASES/$dbName/DATA/$tbName.data";then 
+        
         echo "enter new element"
         read newelement
-    sed -i "s/$element/$newelement/" ./DATABASES/$dbName/DATA/$tbName.data
-    else 
+        
+        IFS=$'\n' read -d '' -r -a tblData < "./DATABASES/$dbName/DATA/$tbName.data" 
+        
+        for((i=0;i<${#tblData[@]}; i++));do
+	
+                IFS=$',' read  -r -a  Col <<< "${tblData[$i]}"
+                colPK="${Col[0]}"
+                
+                if grep -q $colPK "./DATABASES/$dbName/DATA/$tbName.data"; then     #"../DATABASES/$dbName/DATA/$tbName-data"; then
+                
+                   if test $newelement -eq $colPK 
+                   then
+                        echo "Repeated id !"
+                        flag="true"
+                        updateTbl 
+                    else 
+                        echo "else"
+                        flag="false"
+                    fi            
+                fi
+         done
+         
+        if test $flag -eq true
+        then   
+                echo "Repeated id !"
+                updateTbl
+        else
+                sed -i "s/$element/$newelement/" ./DATABASES/$dbName/DATA/$tbName.data
+                echo "Successfully Table $tbName Updated."
+        fi    
+
+else 
             echo " element not found !"
-            ./select.sh "$dbName"
+            ./update.sh "$dbName"
     fi
- 
- echo "Successfully $tbName Table Updated."
 }
 
 echo "------< UPDATE table in DB $dbName >-------"
