@@ -24,7 +24,11 @@ read input
  esac
   
 }
-echo "------< Select From table in DB $dbName >-------"
+
+echo  "        *********************************************************"
+echo  "        *             Select From table in DB $dbName           *"
+echo  "        *********************************************************"
+
 echo "Please enter Table name : "
 read tbName
 bash search.sh "$tbName.metadata" "$dbName/METADATA/" #check if table exist

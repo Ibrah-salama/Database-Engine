@@ -10,5 +10,8 @@ read Name
 if [ $Name ]
 then
 	. ./mainDbMenu.sh
+else
+	echo PLease Enter a Name
+	./welcomProject.sh
 fi
 
