@@ -1,5 +1,4 @@
 #!/bin/bash
-echo Welcom: $Name
 echo  "****************************************************************"
 echo  "*              PLEASE SELECT ONE OF THE OPTION                 *"
 echo  "****************************************************************"
@@ -24,6 +23,8 @@ do
 		#DROPPING A DATABASE		#[DONE]
 		4) ./dropDB.sh
 			;;
-		*) echo Please Choose One Of List Options:
+		*) echo "Please Choose One Of List Options: "
+			bash mainDbMenu.sh 
+			;;
 	esac
 done

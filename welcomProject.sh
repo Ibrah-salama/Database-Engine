@@ -9,6 +9,7 @@ echo To Start Please Enter Your Name:
 read Name
 if [ $Name ]
 then
+	echo Welcom: $Name
 	. ./mainDbMenu.sh
 else
 	echo PLease Enter a Name

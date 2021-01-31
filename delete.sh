@@ -1,9 +1,5 @@
 #!/bin/bash
 clear
-echo  "    **********************************************************"
-echo  "    *                   DELETING OPERATION                   *"
-echo  "    **********************************************************"
-
 dbName=$1
 
 #select function#
@@ -15,12 +11,12 @@ function delete {
 			sed "/$input/d" -i "./DATABASES/$dbName/DATA/$tbName.data"
         else 
             echo "not found !"
-            ./select.sh "$dbName"
+            bash databaseOptions.sh "$dbName"
         fi
 }
 
 echo  "        *********************************************************"
-echo  "        *             Select From table in DB $dbName           *"
+echo  "        *             Delete From table in DB $dbName           *"
 echo  "        *********************************************************"
 
 echo "Please enter Table name : "
@@ -29,9 +25,9 @@ bash search.sh "$tbName.metadata" "$dbName/METADATA/" #check if table exist
 if [ "$?" -eq "0" ]
 then
         echo "Table Dosen't Exsit !"
-        ./select.sh "$dbName"
+        bash databaseOptions.sh  "$dbName"
 else
      	delete #function 
-        echo Successfully $tbName Table Created.
-		./databaseOptions.sh "$dbName"
+        echo "Successfully Deleted"
+		bash databaseOptions.sh "$dbName"
 fi

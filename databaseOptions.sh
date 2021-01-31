@@ -9,23 +9,22 @@ select oper in "${operations[@]}"
 	do
 	#Check For The Reply From The User 
 	case $REPLY in
-		1) ./createTable.sh "$dbName" #[Not FINISHED]
-            echo "\n"
+		1) ./createTable.sh "$dbName" #[DONE]
 			;;
-            
 		2) ./insert.sh "$dbName"	  #[DONE]
-			echo "\n"
             ;;
 		3) ./select.sh "$dbName"      #[DONE]
 			;;
-		4) ./update.sh "$dbName"
+		4) ./update.sh "$dbName"	  #[DONE]
 			;;
-		5) ./delete.sh "$dbName"	
+		5) ./delete.sh "$dbName"	  #[DONE]
 			;;
 		6) ./dropTabl.sh "$dbName"    #[DONE]
 			;;
 		7) ./listTabl.sh "$dbName"    #[DONE]
 			;;
-		*) echo Please Choose One Of List Options:
+		*) echo "Please Choose One Of List Options: "
+			bash databaseOptions.sh "$dbName"
+			;;
 	esac
-	done
+done

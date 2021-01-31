@@ -3,7 +3,6 @@ clear
 echo  "****************************************************************"
 echo  "*                       DROPPING DATABASE                      *"
 echo  "****************************************************************"
-echo $accept
 
 echo 'Your Choic Is To Drop Database: '
 echo 'Please Enter A Database To Drop: '
@@ -14,8 +13,9 @@ then
 	#REMOVING DATABASE
 	rm -r "./DATABASES/$dbName"
 	echo SUCCESSFUL DROPPING.
+	bash mainDbMenu.sh
 else
 	echo "DataBase Not Found Hear Are The List Of Existed Databases"
 	ls  ./DATABASES
+	bash mainDbMenu.sh
 fi
-./mainDbMenu.sh

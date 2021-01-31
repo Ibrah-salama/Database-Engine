@@ -1,6 +1,9 @@
 #!/bin/bash
 dbName=$1
-echo "------< your choice is to drop a table >-------"
+echo  "        *********************************************************"
+echo  "        *                 Drop Table From $dbName               *"
+echo  "        *********************************************************"
+
 echo "Please enter Table name : "
 read tbName
 # echo tbName is $tbName
@@ -11,9 +14,9 @@ then
         rm -r "./DATABASES/$dbName/DATA/$tbName.data"
         rm -r "./DATABASES/$dbName/METADATA/$tbName.metadata"
         echo "SUCCESSFULYY $tbName Dropped.."
-        ./connectDB.sh
+        bash databaseOptions.sh "$dbName"
 else
         echo "Table $tbName Does Not Exisit"
-             ./dropTabl.sh "$dbName"
+        bash databaseOptions.sh "$dbName"
 fi
                      

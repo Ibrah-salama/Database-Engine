@@ -1,9 +1,9 @@
 #!/bin/bash
-clear
 echo  "****************************************************************"
 echo  "*                       CONNECTING DATABASE                    *"
 echo  "****************************************************************"
-echo Please Enter A Valid Database To Connect With: 
+
+echo "Please Enter A Valid Database To Connect With: "
 
 #ASKING FOR AIMED DATABASE
 read dbName

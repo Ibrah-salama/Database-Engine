@@ -5,4 +5,4 @@ echo  "                       *  Databases Available Are:  *"
 echo  "                       ******************************"
  
 ls  ./DATABASES/
-./mainDbMenu.sh
+bash mainDbMenu.sh
